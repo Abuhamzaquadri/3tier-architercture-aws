@@ -40,7 +40,7 @@ Building a **3-Tier Infrastructure** to launch an application on AWS Cloud and m
 
 ## Nth-Tier / 3-Tier Secure Architecture
 
-![Nth-Tier Architecture](images/nth%20tier%20architecture.png)
+![Nth-Tier Architecture](images/Nth-tier%20architecture.png)
 
 ---
 
