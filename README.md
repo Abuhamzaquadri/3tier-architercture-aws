@@ -131,7 +131,8 @@ Building a **3-Tier Infrastructure** to launch an application on AWS Cloud and m
 - Attach it to the VPC  
 
 **Screenshot:**  
-![Internet Gateway Attach](images/VPC%20and%20Subnet/igw-attach.png)
+![Internet Gateway Attach](images/VPC%20and%20Subnet/igw.png)
+![Internet Gateway Attach](images/VPC%20and%20Subnet/attach-igw-to-vpc.png)
 
 
 ###  Step 4: Public Route Table  
@@ -141,6 +142,9 @@ Building a **3-Tier Infrastructure** to launch an application on AWS Cloud and m
 
 **Screenshot:**  
 ![Public Route Table](images/VPC%20and%20Subnet/public-rt.png)
+![Public Route Table](images/VPC%20and%20Subnet/public-rt-route.png)
+![Public Route Table](images/VPC%20and%20Subnet/route-for-public-rt.png)
+![Private RT DB Layer](images/VPC%20and%20Subnet/subnet-association-for-public-rt.png)
 
 
 ###  Step 5: NAT Gateway  
@@ -157,14 +161,16 @@ Building a **3-Tier Infrastructure** to launch an application on AWS Cloud and m
   - Associate with **3 Application Subnets**  
 
 **Screenshot:**  
-![Private RT App Layer](images/VPC%20and%20Subnet/private-rt-app.png)
+![Private RT App Layer](images/VPC%20and%20Subnet/private-rt.png)
+![Private RT DB Layer](images/VPC%20and%20Subnet/subnet-association-for-private-rt.png)
 
 - Create **Private Route Table** for Database Layer  
   - Route it to NAT Gateway  
   - Associate with **3 Database Subnets**  
 
 **Screenshot:**  
-![Private RT DB Layer](images/VPC%20and%20Subnet/private-rt-db.png)
+![Private RT DB Layer](images/VPC%20and%20Subnet/db-rt.png)
+![Private RT DB Layer](images/VPC%20and%20Subnet/subnet-association-for-db-rt.png)
 
 
 ###  Step 7: EC2 Instances (Compute Layer)
@@ -173,14 +179,16 @@ Building a **3-Tier Infrastructure** to launch an application on AWS Cloud and m
 - Database Layer: EC2 DB (if not using RDS) in **Private Subnets**  
 
 **Screenshot:**  
-![EC2 Instances](images/VPC%20and%20Subnet/ec2-instances.png)
+
+![EC2 Instances](images/Ec2.png)
 
 
 ###  Step 8: Database Layer
 - RDS / EC2 DB → Hosted in **Private Subnets**, accessible only by Application Layer  
 
 **Screenshot:**  
-![Database Layer](images/VPC%20and%20Subnet/db-layer.png)
+![RDS / Database Layer](images/RDS.png)
+
 
 
 ###  Step 9: Load Balancer
@@ -188,14 +196,17 @@ Building a **3-Tier Infrastructure** to launch an application on AWS Cloud and m
 - Provides **fault tolerance** and **high availability**  
 
 **Screenshot:**  
-![Load Balancer](images/VPC%20and%20Subnet/load-balancer.png)
+![Load Balancer](images/Load%20balancer.png)
+
 
 
 ###  Step 10: Security Groups & Network ACLs
 - Proxy SG: Allow 80/443 from Internet  
 - App SG: Allow 80/443 from Proxy SG only  
 - DB SG: Allow 3306 from App SG only  
-- NACLs: Subnet level filtering for extra security  
+- NACLs: Subnet level filtering for extra security
+
+ ![Security Groups & NACLs](images/security%20groups.png)
 
 **Flow:**  
 Client → Public Internet → Load Balancer / Proxy Layer  
