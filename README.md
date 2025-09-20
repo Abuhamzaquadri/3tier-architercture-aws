@@ -58,12 +58,57 @@ Building a **3-Tier Infrastructure** to launch an application on AWS Cloud and m
 
 ###  Step 1: Create VPC  
 - Create a **VPC** in AWS Cloud with the network range `10.0.0.0/16`  
-  - Range: `10.0.0.0` to `10.0.255.255`  
+  - Range: `10.0.0.0` to `10.0.255.255`
+ 
+
+
+# VPC & Subnet Diagrams
+
+## VPC for Subnets
+
+![VPC for Subnets](images/VPC%20and%20Subnet/vpc-for-subnets.png)
+
+## Subnet Creation
+
+![Subnet Creation](images/VPC%20and%20Subnet/subnet-create.png)
+
+
+
+
+
 
 ###  Step 2: Create Subnets  
 - Create **9 Subnets** in the VPC
 
 
+# Subnet Diagrams
+
+## Subnet 1
+![Subnet 1](images/VPC%20and%20Subnet/subnet-1.png)
+
+## Subnet 2
+![Subnet 2](images/VPC%20and%20Subnet/subnet-2.png)
+
+## Subnet 3
+![Subnet 3](images/VPC%20and%20Subnet/subnet-3.png)
+
+## Subnet 4
+![Subnet 4](images/VPC%20and%20Subnet/subnet-4.png)
+
+## Subnet 5
+![Subnet 5](images/VPC%20and%20Subnet/subnet-5.png)
+
+## Subnet 6
+![Subnet 6](images/VPC%20and%20Subnet/subnet-6.png)
+
+## Subnet 7
+![Subnet 7](images/VPC%20and%20Subnet/subnet-7.png)
+
+## Subnet 8
+![Subnet 8](images/VPC%20and%20Subnet/subnet-8.png)
+
+## Subnet 9
+![Subnet 9](images/VPC%20and%20Subnet/subnet-9.png)
 
 
 
@@ -90,7 +135,10 @@ Building a **3-Tier Infrastructure** to launch an application on AWS Cloud and m
 
 ###  Step 3: Internet Gateway  
 - Create **Internet Gateway**  
-- Attach it to the VPC  
+- Attach it to the VPC
+
+
+
 
 ###  Step 4: Public Route Table  
 - Create **Public Route Table**  
