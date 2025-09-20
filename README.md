@@ -72,11 +72,6 @@ Building a **3-Tier Infrastructure** to launch an application on AWS Cloud and m
 
 ![Subnet Creation](images/VPC%20and%20Subnet/subnet-create.png)
 
-
-
-
-
-
 ###  Step 2: Create Subnets  
 - Create **9 Subnets** in the VPC
 
@@ -111,8 +106,6 @@ Building a **3-Tier Infrastructure** to launch an application on AWS Cloud and m
 ![Subnet 9](images/VPC%20and%20Subnet/subnet-9.png)
 
 
-
-
 **Subnet Allocation:**  
 
 | Network ID | IP Address Range | Broadcast ID |
@@ -135,9 +128,10 @@ Building a **3-Tier Infrastructure** to launch an application on AWS Cloud and m
 
 ###  Step 3: Internet Gateway  
 - Create **Internet Gateway**  
-- Attach it to the VPC
+- Attach it to the VPC  
 
-
+**Screenshot:**  
+![Internet Gateway Attach](images/VPC%20and%20Subnet/igw-attach.png)
 
 
 ###  Step 4: Public Route Table  
@@ -145,46 +139,72 @@ Building a **3-Tier Infrastructure** to launch an application on AWS Cloud and m
 - Route it to Internet Gateway  
 - Associate with **3 Public Subnets**  
 
+**Screenshot:**  
+![Public Route Table](images/VPC%20and%20Subnet/public-rt.png)
+
+
 ###  Step 5: NAT Gateway  
 - Create a **NAT Gateway**  
 - Associate it with **Elastic IP**  
+
+**Screenshot:**  
+![NAT Gateway](images/VPC%20and%20Subnet/nat-gateway.png)
+
 
 ###  Step 6: Private Route Tables  
 - Create **Private Route Table** for Application Layer  
   - Route it to NAT Gateway  
   - Associate with **3 Application Subnets**  
 
+**Screenshot:**  
+![Private RT App Layer](images/VPC%20and%20Subnet/private-rt-app.png)
+
 - Create **Private Route Table** for Database Layer  
   - Route it to NAT Gateway  
-  - Associate with **3 Database Subnets**
+  - Associate with **3 Database Subnets**  
 
-###  Step 7
-- EC2 Instances (Compute Layer)
-Proxy Layer: EC2 instances or Load Balancer in public subnets to handle incoming traffic
-Application Layer: EC2 instances hosting applications in private subnets
-Database Layer: EC2 DB (if not using RDS) in private subnets
+**Screenshot:**  
+![Private RT DB Layer](images/VPC%20and%20Subnet/private-rt-db.png)
 
-###  Step 8
-- Database Layer
-  RDS / EC2 DB → Hosted in private subnets, accessible only by Application Layer
 
-###  Step 9
-- Load Balancer
-  ALB / ELB → Placed in public subnets to distribute traffic to Application Layer EC2 instances
-  Provides fault tolerance and high availability
+###  Step 7: EC2 Instances (Compute Layer)
+- Proxy Layer: EC2 instances or Load Balancer in **Public Subnets** to handle incoming traffic  
+- Application Layer: EC2 instances hosting applications in **Private Subnets**  
+- Database Layer: EC2 DB (if not using RDS) in **Private Subnets**  
 
-###  Step 10
-= Security Groups & Network ACLs
-  Proxy SG: Allow 80/443 from Internet
-  App SG: Allow 80/443 from Proxy SG only
-  DB SG: Allow 3306 from App SG only
-  NACLs: Subnet level filtering for extra security
+**Screenshot:**  
+![EC2 Instances](images/VPC%20and%20Subnet/ec2-instances.png)
 
-Flow
-Client → Public Internet → Load Balancer / Proxy Layer
-Load Balancer → Application Servers (EC2, Private Subnet)
-Application Servers → Database Servers (RDS/EC2, Private Subnet)
-Database Servers → No direct Internet access
+
+###  Step 8: Database Layer
+- RDS / EC2 DB → Hosted in **Private Subnets**, accessible only by Application Layer  
+
+**Screenshot:**  
+![Database Layer](images/VPC%20and%20Subnet/db-layer.png)
+
+
+###  Step 9: Load Balancer
+- ALB / ELB → Placed in **Public Subnets** to distribute traffic to Application Layer EC2 instances  
+- Provides **fault tolerance** and **high availability**  
+
+**Screenshot:**  
+![Load Balancer](images/VPC%20and%20Subnet/load-balancer.png)
+
+
+###  Step 10: Security Groups & Network ACLs
+- Proxy SG: Allow 80/443 from Internet  
+- App SG: Allow 80/443 from Proxy SG only  
+- DB SG: Allow 3306 from App SG only  
+- NACLs: Subnet level filtering for extra security  
+
+**Flow:**  
+Client → Public Internet → Load Balancer / Proxy Layer  
+Load Balancer → Application Servers (EC2, Private Subnet)  
+Application Servers → Database Servers (RDS/EC2, Private Subnet)  
+Database Servers → No direct Internet access  
+
+**Screenshot:**  
+![Security Groups & NACLs](images/VPC%20and%20Subnet/security-groups-nacls.png)
 
 ---
 
@@ -195,3 +215,4 @@ Database Servers → No direct Internet access
 
 
 **Calculation:**  
+
