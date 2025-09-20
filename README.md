@@ -30,9 +30,15 @@ Building a **3-Tier Infrastructure** to launch an application on AWS Cloud and m
 - Both are independent entities, which improves performance.  
 - Can be used in production but is **less secure**.  
 
-**Diagram:**  
-![3-Tier Architecture](images/3-tier-architecture.png)
-![3-Tier Architecture](images/Nth-tier-architecture.png)
+**Diagram1:**  
+![3-Tier Architecture](images/3%20tier%20architecture.png)
+
+
+
+
+**Diagram2:**  
+
+![Nth-Tier Architecture](images/nth%20tier%20architecture.png)
 
 ---
 
