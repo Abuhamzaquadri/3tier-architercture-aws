@@ -30,7 +30,7 @@ Building a **3-Tier Infrastructure** to launch an application on AWS Cloud and m
 - Can be used in production but is **less secure**.  
 
 **Diagram:**  
-![3-Tier Architecture](./3%20tier%20architecture.png)  
+![3-Tier Architecture](./images/Nth-tier architecture.png)  
 
 ---
 
