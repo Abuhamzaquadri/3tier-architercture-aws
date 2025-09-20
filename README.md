@@ -18,7 +18,8 @@ Building a **3-Tier Infrastructure** to launch an application on AWS Cloud and m
 - Not used in production environments, but can be used in **development and testing**.  
 
 **Diagram:**  
-![2-Tier Architecture](./2%20tier%20architecture.png)  
+![2-Tier Architecture](images/2%20tier%20architecture.png)
+ 
 
 ---
 
@@ -30,7 +31,8 @@ Building a **3-Tier Infrastructure** to launch an application on AWS Cloud and m
 - Can be used in production but is **less secure**.  
 
 **Diagram:**  
-![3-Tier Architecture](./images/Nth-tier architecture.png)  
+![3-Tier Architecture](images/3-tier-architecture.png)
+![3-Tier Architecture](images/Nth-tier-architecture.png)
 
 ---
 
